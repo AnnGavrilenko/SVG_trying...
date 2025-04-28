@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Mask Example</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .video_holder {
+            width: 320px;
+            height: 96px;
+            overflow: hidden;
+            mask: url(#maskRect);
+        }
+
+        .video_holder video {
+            position: relative;
+            top: -80px;
+        }
+    </style>
+</head>
+<body>
+
+<svg width="0" height="0">
+    <defs>
+        <mask id="maskRect">
+            <rect x="0" y="0" width="320" height="96" fill="white"/>
+        </mask>
+    </defs>
+</svg>
+
+<div class="container">
+    <span>I do not know</span>
+    <div class="video_holder">
+        <video width="320" height="180" loop muted autoplay>
+            <source src="resources/video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <span>how to complete this task</span>
+</div>
+
+</body>
+</html>
